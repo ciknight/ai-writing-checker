@@ -1,0 +1,16 @@
+{
+  "name": "ai-writing-checker",
+  "version": "1.0.0",
+  "description": "A web application that uses OpenAI's service to check for errors in user input and display the results.",
+  "main": "src/js/script.js",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'No build step required'",
+    "test": "echo 'No tests specified'"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}

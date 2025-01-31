@@ -1,0 +1,95 @@
+/* Basic reset for margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Container styles */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Input styles */
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Button styles */
+button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Main section styles */
+.main {
+    display: flex;
+}
+
+/* Input section styles */
+.input-section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+/* Result section styles */
+.result-section {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+/* Loading and error message styles */
+.loading,
+.error {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.delete {
+    text-decoration: line-through;
+    color: #ff0000;
+    background-color: #ffd7d5;
+}
+
+.add {
+    color: #008000;
+    background-color: #98ff98;
+    font-weight: bold;
+}
