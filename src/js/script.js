@@ -1,3 +1,5 @@
+import '../css/style.css';
+
 const ENDPOINTS = {
     openai: 'https://api.openai.com/v1/chat/completions',
     deepseek: 'https://api.deepseek.com/v1/chat/completions',
