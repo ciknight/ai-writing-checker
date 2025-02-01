@@ -4,10 +4,11 @@ const ENDPOINTS = {
     claude: 'https://api.anthropic.com/v1/messages'
 };
 
+const DEFAULT_PROMPT = "请帮我检查以下文章，不改变原意，找出错误并修正。请直接返回修改后的完整文本，不要包含任何其他内容：\n\n";
 const PROMPTS = {
-    openai: "请帮我检查以下文章，找出错误并修正。请直接返回修改后的完整文本，不要包含任何其他内容：\n\n",
-    deepseek: "请帮我检查以下文章，找出错误并修正。请直接返回修改后的完整文本，不要包含任何其他内容：\n\n",
-    claude: "请帮我检查以下文章，找出错误并修正。请直接返回修改后的完整文本，不要包含任何其他内容：\n\n"
+    openai: DEFAULT_PROMPT,
+    deepseek: DEFAULT_PROMPT,
+    claude: DEFAULT_PROMPT,
 };
 
 function saveApiKey(apiKey) {
@@ -152,8 +153,7 @@ function getHeaders(serviceType, apiKey) {
 function highlightDifferences(originalText, modifiedText) {
     function normalizeText(text) {
         return text
-            .replace(/\n/g, ' ')
-            .replace(/\s+/g, ' ')
+            .replace(/\s+/g, '')
             .trim();
     }
 
