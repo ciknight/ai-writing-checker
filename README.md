@@ -1,5 +1,3 @@
-# ai-writing-checker/ai-writing-checker/README.md
-
 # AI Writing Checker
 
 ## Overview

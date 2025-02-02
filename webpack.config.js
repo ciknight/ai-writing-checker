@@ -26,7 +26,7 @@ module.exports = {
     new CleanWebpackPlugin(),  // 清理 dist 目录
     new HtmlWebpackPlugin({
       template: './src/index.html',  // 使用 src/index.html 作为模板
-      inject: 'head',  // 将 JS 和 CSS 内联到 HTML 中
+      inject: 'body',  // 将 JS 和 CSS 内联到 HTML 中, 确保 JavaScript 在 body 结束标签前加载
       minify: {
         removeComments: true,
         collapseWhitespace: true,

@@ -262,19 +262,22 @@ function handleError(error) {
     document.querySelector('.error').style.display = 'block';
 }
 
-// Add event listener for service type change
-document.getElementById('serviceType').addEventListener('change', updateModelOptions);
-// Initialize model options on page load
-document.addEventListener('DOMContentLoaded', () => {
+// DOM manipulation and event handlers
+function initializeApp() {
     const settings = loadSettings();
     const savedApiKey = loadApiKey();
 
+    // Get DOM elements
+    const serviceTypeSelect = document.getElementById('serviceType');
+    const apiKeyInput = document.getElementById('apiKey');
+    const modelSelect = document.getElementById('model');
+
     // Set saved values
     if (savedApiKey) {
-        document.getElementById('apiKey').value = savedApiKey;
+        apiKeyInput.value = savedApiKey;
     }
     if (settings.serviceType) {
-        document.getElementById('serviceType').value = settings.serviceType;
+        serviceTypeSelect.value = settings.serviceType;
     }
 
     // Update model options first
@@ -282,17 +285,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Then set saved model if exists
     if (settings.model) {
-        document.getElementById('model').value = settings.model;
+        modelSelect.value = settings.model;
     }
-});
 
-// Add API key input event listener
-document.getElementById('apiKey').addEventListener('change', (e) => {
-    saveApiKey(e.target.value);
-});
+    // Add event listeners
+    serviceTypeSelect.addEventListener('change', updateModelOptions);
+    apiKeyInput.addEventListener('change', (e) => {
+        saveApiKey(e.target.value);
+    });
+    modelSelect.addEventListener('change', (e) => {
+        const serviceType = serviceTypeSelect.value;
+        saveSettings(serviceType, e.target.value);
+    });
 
-// Add model change listener
-document.getElementById('model').addEventListener('change', (e) => {
-    const serviceType = document.getElementById('serviceType').value;
-    saveSettings(serviceType, e.target.value);
-});
+    // Add check button event listener
+    const checkButton = document.querySelector('button');
+    if (checkButton) {
+        checkButton.addEventListener('click', checkText);
+    }
+}
+
+// Initialize app when DOM is loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+    initializeApp();
+}
